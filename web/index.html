@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tom · 桌面聊天</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<svg class="icon-defs" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 9 9 0 0 1-3.8-.8L3 21l1.7-5.1A8.3 8.3 0 0 1 4 11.5 8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"/></symbol>
+  <symbol id="i-contacts" viewBox="0 0 24 24"><path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-1.5a4 4 0 0 0-3-3.9M16.5 3.6a3.2 3.2 0 0 1 0 6.2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.4l6.2-.9L12 2.8Z"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2 2-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.2h-2.8v-.2a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-2-2 .1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4.5v-2.8h.2a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2-2 .1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.2H14v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 2 2-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.2v2.8h-.2a1.7 1.7 0 0 0-1.7 1Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-emoji" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0"/><circle cx="9" cy="9.5" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="9.5" r=".9" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m4 17 5-5 3.5 3.5 2.5-2.5 5 5"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h7A1.5 1.5 0 0 1 19 9.7v8A1.5 1.5 0 0 1 17.5 19h-13A1.5 1.5 0 0 1 3 17.5Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3Z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6 18 18M18 6 6 18"/></symbol>
+  <symbol id="i-min" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-max" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1.5"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16v4ZM13.5 6.5l4 4"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5M15 8l4 4-4 4M9 12h10"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19v-1.2A3.8 3.8 0 0 1 6.3 14h5.4a3.8 3.8 0 0 1 3.8 3.8V19"/><path d="M17 5.2a3.2 3.2 0 0 1 0 6M18 14.4a3.8 3.8 0 0 1 3.5 3.4V19"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
+  <symbol id="i-mask" viewBox="0 0 24 24"><path d="M3 7.5C3 5.6 4.6 4 6.5 4h11C19.4 4 21 5.6 21 7.5v5c0 4.7-3.8 8.5-8.5 8.5h-1C6.8 21 3 17.2 3 12.5v-5Z"/><path d="M7 10.8c1.3 0 2.2 1 2.2 2M17 10.8c-1.3 0-2.2 1-2.2 2"/><path d="M9.3 16.3c1.5 1.1 3.9 1.1 5.4 0"/></symbol>
+</svg>
+
+<!-- ============ 登录 ============ -->
+<div id="loginView" class="login-view">
+  <div class="login-window">
+    <div class="login-titlebar">
+      <div class="brand"><span class="brand-mark"><svg><use href="#i-mask"/></svg></span><span class="brand-text">Tom</span></div>
+      <div class="win-btns"><button class="win-btn" data-win="min" title="最小化"><svg><use href="#i-min"/></svg></button><button class="win-btn win-close" data-win="close" title="关闭"><svg><use href="#i-close"/></svg></button></div>
+    </div>
+    <div class="login-body">
+      <div class="login-visual">
+        <div class="bubble bubble-a">嗨，今天过得怎么样？</div>
+        <div class="bubble bubble-b">在 Tom 等你很久啦 ~</div>
+        <div class="bubble bubble-c">✨ 一起聊会儿吧</div>
+        <div class="visual-copy">
+          <div class="visual-logo">Tom</div>
+          <p>让每一次对话，都近一点</p>
+          <span>登录 · 注册 · 云端同步</span>
+        </div>
+      </div>
+      <div class="login-form-wrap">
+        <h2>欢迎使用 Tom</h2>
+        <p class="login-sub">验证码登录，未注册的账号将自动创建</p>
+        <div class="login-tabs">
+          <button class="login-tab active" data-mode="phone">手机号</button>
+          <button class="login-tab" data-mode="email">邮箱</button>
+        </div>
+        <div class="field">
+          <label id="accountLabel" for="loginAccount">手机号</label>
+          <input id="loginAccount" type="text" autocomplete="off" placeholder="请输入 11 位手机号" maxlength="64">
+        </div>
+        <div class="field">
+          <label for="loginCode">验证码</label>
+          <div class="code-row">
+            <input id="loginCode" type="text" inputmode="numeric" autocomplete="off" placeholder="6 位验证码" maxlength="8">
+            <button id="sendCodeBtn" class="btn-ghost" type="button">获取验证码</button>
+          </div>
+        </div>
+        <div id="loginError" class="form-error" role="alert"></div>
+        <button id="loginBtn" class="btn-primary" type="button">登 录 / 注 册</button>
+        <div class="login-divider"><span>其他方式</span></div>
+        <button id="wechatLoginBtn" class="btn-outline" type="button">使用 WorkBuddy 登录</button>
+        <p class="login-tip">登录即表示同意《Tom 用户协议》与《隐私政策》</p>
+      </div>
+    </div>
+  </div>
+  <div class="login-foot">Tom for Desktop · v1.1.0 · 由云端服务提供账号与消息存储</div>
+</div>
+
+<!-- ============ 主窗口 ============ -->
+<div id="mainView" class="main-view hidden">
+  <div class="window">
+    <header class="titlebar">
+      <div class="titlebar-brand"><span class="brand-mark small"><svg><use href="#i-mask"/></svg></span><span>Tom</span></div>
+      <div class="global-search"><svg><use href="#i-search"/></svg><input id="globalSearch" placeholder="搜索好友、Tom 号或消息" autocomplete="off"></div>
+      <div class="titlebar-right">
+        <span id="connStatus" class="conn-status"><i></i>已连接</span>
+        <div class="win-btns">
+          <button class="win-btn" data-win="min" title="最小化"><svg><use href="#i-min"/></svg></button>
+          <button class="win-btn" data-win="max" title="最大化"><svg><use href="#i-max"/></svg></button>
+          <button class="win-btn win-close" data-win="close" title="关闭"><svg><use href="#i-close"/></svg></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="window-body">
+      <nav class="rail">
+        <button id="railAvatar" class="rail-avatar" title="我的资料"><span id="railAvatarText">T</span><i id="railStatusDot" class="status-dot online"></i></button>
+        <button class="rail-btn active" data-view="messages" title="消息"><svg><use href="#i-msg"/></svg><span class="rail-badge hidden" id="railBadge">0</span></button>
+        <button class="rail-btn" data-view="anon" title="匿名广场"><svg><use href="#i-mask"/></svg></button>
+        <button class="rail-btn" data-view="contacts" title="通讯录"><svg><use href="#i-contacts"/></svg></button>
+        <button class="rail-btn" data-view="favorites" title="收藏"><svg><use href="#i-star"/></svg></button>
+        <div class="rail-spacer"></div>
+        <button class="rail-btn" data-view="settings" title="设置"><svg><use href="#i-settings"/></svg></button>
+      </nav>
+
+      <aside class="sidebar">
+        <div class="sidebar-head">
+          <div class="sidebar-search"><svg><use href="#i-search"/></svg><input id="sidebarSearch" placeholder="搜索" autocomplete="off"></div>
+          <button id="addBtn" class="add-btn" title="添加好友 / 发起会话"><svg><use href="#i-plus"/></svg></button>
+        </div>
+        <div id="listTitle" class="list-title">消息 <span id="listCount"></span></div>
+        <div id="conversationList" class="scroll-list"></div>
+        <div id="contactList" class="scroll-list hidden"></div>
+        <div id="favoriteList" class="scroll-list hidden"></div>
+        <div id="settingsPanel" class="scroll-list hidden"></div>
+        <div class="sidebar-foot"><span id="sidebarMe">Tom 用户</span><span id="sidebarTomId"></span></div>
+      </aside>
+
+      <section class="chat-pane">
+        <div id="chatEmpty" class="chat-empty">
+          <div class="empty-art"><svg><use href="#i-msg"/></svg></div>
+          <h3>选一个会话开始聊天吧</h3>
+          <p>消息会安全地保存在云端，换台电脑登录也能看到</p>
+        </div>
+
+        <div id="chatPanel" class="chat-panel hidden">
+          <div class="chat-header">
+            <div class="chat-head-left">
+              <div id="chatAvatar" class="avatar md">T</div>
+              <div><div id="chatName" class="chat-name">会话</div><div id="chatSub" class="chat-sub"></div></div>
+            </div>
+            <div class="chat-head-actions">
+              <button id="chatSearchBtn" class="icon-btn" title="搜索聊天记录"><svg><use href="#i-search"/></svg></button>
+              <button id="chatInfoBtn" class="icon-btn" title="会话信息"><svg><use href="#i-info"/></svg></button>
+              <button id="chatMoreBtn" class="icon-btn" title="更多"><svg><use href="#i-more"/></svg></button>
+            </div>
+          </div>
+
+          <div id="chatSearchBar" class="chat-search-bar hidden">
+            <svg><use href="#i-search"/></svg>
+            <input id="chatSearchInput" placeholder="在当前会话中搜索消息" autocomplete="off">
+            <span id="chatSearchCount">0 条</span>
+            <button id="chatSearchClose" class="icon-btn"><svg><use href="#i-close"/></svg></button>
+          </div>
+
+          <div id="messageList" class="message-list"></div>
+
+          <div class="composer">
+            <div class="composer-tools">
+              <button id="emojiBtn" class="tool-btn" title="表情"><svg><use href="#i-emoji"/></svg></button>
+              <button id="imageBtn" class="tool-btn" title="发送图片"><svg><use href="#i-image"/></svg></button>
+              <button id="fileBtn" class="tool-btn" title="发送文件"><svg><use href="#i-folder"/></svg></button>
+              <button id="clearBtn" class="tool-btn" title="清空聊天记录"><svg><use href="#i-trash"/></svg></button>
+              <span class="tool-hint" id="composerHint">Enter 发送 · Shift + Enter 换行</span>
+            </div>
+            <textarea id="messageInput" placeholder="输入消息，按 Enter 发送…" rows="3"></textarea>
+            <div class="composer-bottom">
+              <span id="uploadProgress" class="upload-progress"></span>
+              <button id="sendBtn" class="send-btn">发送 <svg><use href="#i-send"/></svg></button>
+            </div>
+          </div>
+
+          <div id="emojiPanel" class="emoji-panel hidden"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 通用弹层 ============ -->
+<div id="modalBackdrop" class="modal-backdrop hidden">
+  <div id="modalBox" class="modal-box"></div>
+</div>
+<div id="imageViewer" class="image-viewer hidden"><img id="viewerImg" alt="图片预览"><button id="viewerClose" class="viewer-close"><svg><use href="#i-close"/></svg></button></div>
+<div id="toast" class="toast hidden"></div>
+<div id="loadingMask" class="loading-mask hidden"><div class="spinner"></div><span id="loadingText">正在连接云端…</span></div>
+
+<input id="imageInput" type="file" accept="image/png,image/jpeg,image/gif,image/webp" hidden>
+<input id="fileInput" type="file" hidden>
+<input id="avatarInput" type="file" accept="image/png,image/jpeg,image/gif,image/webp" hidden>
+
+<script src="https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js"></script>
+<script src="config.js?v=3"></script>
+<script src="cloud.js?v=3"></script>
+<script src="anon.js?v=3"></script>
+<script src="app.js?v=3"></script>
+</body>
+</html>
