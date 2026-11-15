@@ -1,0 +1,16 @@
+node_modules/
+out-v*/
+installer/
+TomInstaller/
+win-unpacked*/
+*.exe
+*.blockmap
+*.asar
+*.log
+.workbuddy/
+*.genie
+.DS_Store
+Thumbs.db
+web/config.local.js
+desktop/.env
+.env
